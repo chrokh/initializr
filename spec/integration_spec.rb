@@ -17,23 +17,19 @@ describe 'Initializr' do
 
   let(:data) {
     {
-      posts: [
-        {
+      posts: {
+        0 => {
           title: title1,
-          comments: [
-            {
-              body: body1
-            }
-          ]
+          comments: [{ body: body1 }]
         },
-        {
+        1 => {
           title: title2,
           comments: [],
         },
-        {
+        2 => {
           title: title3,
         },
-      ]
+      }
     }
   }
 
@@ -75,7 +71,7 @@ describe 'Initializr' do
       comments: array_of.new(comment)
     })
     catalog = schema.new(Catalog, {
-      posts: array_of.new(post)
+      posts: hash_of.new(post)
     })
 
     result = catalog.instantiate(data)
