@@ -1,7 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'initializr'
-  s.version     = '0.0.1'
-  s.date        = '2016-11-10'
+  s.version     = '0.1.0'
   s.summary     = "Initialize object graph from deeply nested hash based on a schema"
   s.authors     = ["Christopher Okhravi"]
   s.files       = [
