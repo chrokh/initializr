@@ -11,6 +11,8 @@ describe 'Initializr' do
   let(:schema)   { Initializr::Schema  }
 
   let(:title1) { double :title1 }
+  let(:title2) { double :title2 }
+  let(:title3) { double :title3 }
   let(:body1) { double :body1 }
 
   let(:data) {
@@ -22,8 +24,15 @@ describe 'Initializr' do
             {
               body: body1
             }
-        ]
-        }
+          ]
+        },
+        {
+          title: title2,
+          comments: [],
+        },
+        {
+          title: title3,
+        },
       ]
     }
   }
@@ -71,11 +80,12 @@ describe 'Initializr' do
 
     result = catalog.instantiate(data)
 
-    expect(result.posts.length).to eq 1
+    expect(result.posts.length).to eq 3
     expect(result.posts[0].title).to eq title1
     expect(result.posts[0].comments.length).to eq 1
     expect(result.posts[0].comments[0].body).to eq body1
-
+    expect(result.posts[1].title).to eq title2
+    expect(result.posts[2].title).to eq title3
   end
 
 end

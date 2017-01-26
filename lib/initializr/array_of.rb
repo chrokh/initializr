@@ -6,7 +6,7 @@ module Initializr
     end
 
     def instantiate objs
-      objs.map { |obj| @schema.instantiate(obj) }
+      Array(objs).map { |obj| @schema.instantiate(obj) }
     end
 
   end
